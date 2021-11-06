@@ -60,6 +60,17 @@ function initializeServiceWorker() {
    *  TODO - Part 2 Step 1
    *  Initialize the service worker set up in sw.js
    */
+   if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('sw.js').then(function(registration) {
+        // Registration was successful
+        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+      }, function(err) {
+        // registration failed 
+        console.log('ServiceWorker registration failed: ', err);
+      });
+    });
+  }
 }
 
 /**
@@ -93,11 +104,6 @@ async function fetchRecipes() {
  * appends them to the page
  */
 function createRecipeCards() {
-  
-  
-  
-  
-
   // This gets the page name of each of the arrays - which is basically
   // just the filename minus the .json. Since this is the first element
   // in our recipes array, the ghostCookies URL, we will receive the .json

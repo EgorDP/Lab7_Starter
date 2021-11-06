@@ -224,9 +224,6 @@ function bindPopstate() {
       console.log("The computed hash:" + hash);
       router.navigate(hash,false);
     }
-    // else {
-    //   router.navigate('')
-    // }
     
   };
 }
